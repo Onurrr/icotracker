@@ -18,7 +18,7 @@ class IcosController extends Controller
 
     public function index()
     {
-    	$icos = Ico::all();
+    	$icos = Ico::where('active', 1)->get();
 
 
     	return view('coins.index', compact('icos'));
