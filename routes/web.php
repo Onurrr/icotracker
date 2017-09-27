@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/coins','IcosController@index');
+
+Route::get('/coins/{coin}', 'IcosController@show');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
