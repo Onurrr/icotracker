@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ico;
 
 class HomeController extends Controller
 {
@@ -24,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $icos = Ico::all();
-        return view('home',compact('icos'));
+        return view('home');
     }
 }
