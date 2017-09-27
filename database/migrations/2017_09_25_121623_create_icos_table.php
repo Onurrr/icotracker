@@ -15,13 +15,13 @@ class CreateIcosTable extends Migration
     {
         Schema::create('icos', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('active');
             $table->integer('user_id');
             $table->string('name');
             $table->text('website');
             $table->text('symbol');
             $table->text('body');
             $table->date('start');
-            $table->date('end')->nullable();
             $table->bigInteger('total_supply');
             $table->timestamps();
         });
