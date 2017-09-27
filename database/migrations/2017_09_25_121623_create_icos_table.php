@@ -22,7 +22,7 @@ class CreateIcosTable extends Migration
             $table->text('body');
             $table->date('start');
             $table->date('end')->nullable();
-            $table->integer('total_supply');
+            $table->bigInteger('total_supply');
             $table->timestamps();
         });
     }
