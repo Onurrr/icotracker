@@ -24,10 +24,9 @@ class IcosController extends Controller
     	return view('coins.index', compact('icos'));
     }
 
-    public function show($id)
+    public function show(Ico $ico)
     {
-    	$ico = Ico::find($id);
-
+ 
     	return view('coins.show', compact('ico'));
     }
 }

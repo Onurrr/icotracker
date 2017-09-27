@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/coins','IcosController@index');
 
-Route::get('/coins/{coin}', 'IcosController@show');
+Route::get('/coins/{ico}', 'IcosController@show');
 
 
 Auth::routes();
