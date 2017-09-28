@@ -37,7 +37,14 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="/coins">Coins</a></li>
+                        <li class="dropdown">
+     
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Coins <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="/coins">Overview</a></li>
+        <li><a href="/coins/add">Add</a></li>                       
+      </ul>
+    </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
