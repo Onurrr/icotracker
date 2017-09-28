@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ico;
+use Auth;
 
 class IcosController extends Controller
 {
@@ -28,5 +29,38 @@ class IcosController extends Controller
     {
  
     	return view('coins.show', compact('ico'));
+    }
+
+    public function add()
+    {
+ 
+        return view('coins.add');
+    }
+
+    public function store()
+    {
+
+        $this -> validate(request(), [
+            'name' => 'required|unique:icos',
+            'website' => 'required|active_url',
+            'symbol' => 'required',
+            'body' => 'required',
+            'start' => 'required|date',
+            'total_supply'=> 'required|numeric'
+        ]);
+
+        Ico::create([
+            'active' => '1',
+            'user_id' => Auth::user()->id,
+            'name' => request('name'),
+            'website' => request('website'),
+            'symbol' => request('symbol'),
+            'body' => request('body'),
+            'start' => request('start'),
+            'total_supply' => request('total_supply')
+
+        ]);
+
+        return redirect('/coins');
     }
 }

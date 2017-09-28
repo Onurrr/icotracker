@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Route::get('/coins','IcosController@index');
 
+Route::get('/coins/add','IcosController@add');
+
 Route::get('/coins/{ico}', 'IcosController@show');
+
+Route::post('/coins', 'IcosController@store');
 
 
 Auth::routes();
