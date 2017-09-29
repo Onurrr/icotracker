@@ -11,6 +11,7 @@ class Ico extends Model
     {
     	return $this->hasMany(Comment::class);
     }
+
  public function addComment($body)
     {
     	Comment::create([

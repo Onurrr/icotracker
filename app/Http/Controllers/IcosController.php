@@ -19,8 +19,7 @@ class IcosController extends Controller
 
     public function index()
     {
-    	$icos = Ico::where('active', 1)->get();
-
+        $icos = Ico::withCount('likes')->orderBy('likes_count','desc')->where('active', 1)->get();
 
     	return view('coins.index', compact('icos'));
     }
