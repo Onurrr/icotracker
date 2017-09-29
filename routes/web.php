@@ -27,6 +27,8 @@ Route::post('/coins/{ico}/comments', 'CommentsController@store');
 
 Route::post('/coins/{ico}/likes', 'LikesController@store');
 
+Route::delete('/coins/{ico}', 'IcosController@destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

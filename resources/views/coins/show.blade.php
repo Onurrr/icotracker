@@ -17,6 +17,14 @@
 <p><span class="label label-success">Likes: {{$ico->likes()->count()}}</span></p>
         <p>{{$ico->body}}</p>
         <p><a href="//{{$ico->website}}" target="_blank" class="btn btn-primary" role="button">Website</a></p>
+@can ('update',$ico)
+        <form action="/coins/{{$ico->id}}" method="POST">
+          {{csrf_field()}}
+          {{ method_field('DELETE') }}
+          <button type="submit" class="btn btn-default">Delete</button>
+        </form>
+        @endcan
+
         <form method="POST" action="/coins/{{$ico->id}}/likes">
           {{csrf_field()}}
 

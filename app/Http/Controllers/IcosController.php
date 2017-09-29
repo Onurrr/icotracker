@@ -62,4 +62,13 @@ class IcosController extends Controller
 
         return redirect('/coins');
     }
+
+    public function destroy(Ico $ico)
+    {
+        $this->authorize('update', $ico);
+        $ico->comments()->delete();
+        $ico->delete();
+
+        return redirect('/coins');
+    }
 }
