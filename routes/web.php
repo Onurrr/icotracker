@@ -23,6 +23,9 @@ Route::get('/coins/{ico}', 'IcosController@show');
 
 Route::post('/coins', 'IcosController@store');
 
+Route::post('/coins/{ico}/comments', 'CommentsController@store');
+
+Route::post('/coins/{ico}/likes', 'LikesController@store');
 
 Auth::routes();
 
