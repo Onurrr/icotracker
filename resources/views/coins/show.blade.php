@@ -25,6 +25,13 @@
         </form>
         @endcan
 
+        @can ('update',$ico)
+        <form action="/coins/{{$ico->id}}/edit">
+          {{csrf_field()}}
+          <button type="submit" class="btn btn-default">Edit</button>
+        </form>
+        @endcan
+
         <form method="POST" action="/coins/{{$ico->id}}/likes">
           {{csrf_field()}}
 

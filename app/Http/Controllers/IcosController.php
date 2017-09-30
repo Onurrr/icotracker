@@ -30,6 +30,34 @@ class IcosController extends Controller
     	return view('coins.show', compact('ico'));
     }
 
+    public function showedit(Ico $ico)
+    {
+        $this->authorize('update', $ico);
+        return view('coins.edit', compact('ico'));
+    }
+
+
+    public function update(Ico $ico)
+    {
+        $this->authorize('update', $ico);
+        $this -> validate(request(), [
+            'website' => 'required|active_url',
+            'symbol' => 'required',
+            'body' => 'required',
+            'start' => 'required|date',
+            'total_supply'=> 'required|numeric'
+        ]);
+
+         $ico->update(request([
+            'website',
+            'symbyol',
+            'body',
+            'start',
+            'total_supply'
+     ]));
+        return redirect('/coins/');
+    }
+
     public function add()
     {
  
