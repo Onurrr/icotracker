@@ -80,7 +80,13 @@
         </nav>
 
         @yield('content')
+<div class="container">
+    <footer>
+        <p>© 2017 IcoTracker</p>
+      </footer>
+</div>
     </div>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
