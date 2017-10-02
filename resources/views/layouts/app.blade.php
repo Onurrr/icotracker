@@ -20,7 +20,7 @@
         @yield('content')
 <div class="container">
     <footer>
-        <p>© 2017 IcoTracker</p>
+        <p>© 2017 {{ config('app.name', 'Laravel') }}</p>
       </footer>
 </div>
     </div>
