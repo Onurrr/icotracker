@@ -66,7 +66,8 @@ class IcosController extends Controller
 
     public function disable(Ico $ico)
     {
-
+        
+   $this->authorize('update', $ico);
    $ico->update(['active' => 0]);
 
         return redirect('/coins/');
