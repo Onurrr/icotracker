@@ -30,6 +30,8 @@ Route::post('/coins/{ico}/comments', 'CommentsController@store');
 
 Route::post('/coins/{ico}/likes', 'LikesController@store');
 
+Route::post('/coins/{ico}/disable', 'IcosController@disable');
+
 Route::delete('/coins/{ico}', 'IcosController@destroy');
 
 Auth::routes();

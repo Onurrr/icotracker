@@ -37,6 +37,13 @@
 
           <button type="submit" class="btn btn-default" {{$ico->isLiked() ? 'disabled' : ''}}>Like</button>
         </form>
+
+        <form method="POST" action="/coins/{{$ico->id}}/disable">
+          {{csrf_field()}}
+
+          <button type="submit" class="btn btn-default">Like</button>
+        </form>
+
       </div>
     </div>
     <hr>

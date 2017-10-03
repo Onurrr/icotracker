@@ -64,6 +64,15 @@ class IcosController extends Controller
         return view('coins.add');
     }
 
+    public function disable(Ico $ico)
+    {
+
+   $ico->update(['active' => 0]);
+
+        return redirect('/coins/');
+    }
+
+
     public function store()
     {
 
