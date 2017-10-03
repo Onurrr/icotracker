@@ -26,8 +26,11 @@ class IcosController extends Controller
 
     public function show(Ico $ico)
     {
- 
-    	return view('coins.show', compact('ico'));
+        if( $ico -> active == "0"){
+            return redirect('/coins/');
+      }else{
+        return view('coins.show', compact('ico'));  
+      }
     }
 
     public function showedit(Ico $ico)
