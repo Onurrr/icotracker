@@ -17,7 +17,10 @@
     <div id="app">
         @include('layouts.header')
 
+        @include ('flash::message')
+
         @yield('content')
+
 <div class="container">
     <footer>
         <p>© 2017 {{ config('app.name', 'Laravel') }}</p>
@@ -28,5 +31,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 </body>
 </html>

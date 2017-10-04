@@ -14,7 +14,9 @@ class LikesController extends Controller
     public function store(Ico $ico)
     {
     	$ico->like();
-    	
+
+    	flash('You have liked this ico')->success();
+
     	return back();
     }
 }

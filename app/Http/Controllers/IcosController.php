@@ -48,7 +48,7 @@ class IcosController extends Controller
             'symbol' => 'required',
             'body' => 'required',
             'start' => 'required|date',
-            'total_supply'=> 'required|numeric'
+            'total_supply'=> 'required|numeric|max:9223372036854775807'
         ]);
 
          $ico->update(request([
@@ -58,6 +58,8 @@ class IcosController extends Controller
             'start',
             'total_supply'
      ]));
+
+         flash('The Ico has been updated')->success();
         return redirect('/coins/');
     }
 
@@ -100,7 +102,7 @@ class IcosController extends Controller
             'total_supply' => request('total_supply')
 
         ]);
-
+flash('The Ico has been created')->success();
         return redirect('/coins');
     }
 
