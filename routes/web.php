@@ -19,9 +19,10 @@ Route::get('/coins','IcosController@index');
 
 Route::get('/coins/add','IcosController@add');
 
-Route::get('/coins/{ico}', 'IcosController@show');
+Route::get('/coins/{ico}', 'IcosController@show')->middleware('admin');
 
 Route::get('/coins/{ico}/edit', 'IcosController@showedit');
+
 Route::patch('/coins/{ico}/edit', 'IcosController@update');
 
 Route::post('/coins', 'IcosController@store');

@@ -33,9 +33,9 @@ class Ico extends Model
 
     public function like()
     {
-        $attributes = ['user_id' => auth()->id()];
-        if (! $this->likes()->where($attributes)->exists()) {
-            return $this->likes()->create($attributes);
+        $attr = ['user_id' => auth()->id()];
+        if (! $this->likes()->where($attr)->exists()) {
+            return $this->likes()->create($attr);
         }
     }
 
