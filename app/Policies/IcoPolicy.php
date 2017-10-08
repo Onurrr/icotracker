@@ -5,6 +5,8 @@ namespace App\Policies;
 use App\User;
 use App\Ico;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use DB;
+use Auth;
 
 class IcoPolicy
 {
@@ -28,9 +30,13 @@ class IcoPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user, Ico $ico)
     {
-        //
+        $likecount = DB::table('likes')->where('user_id',Auth::user()->id)->count();
+
+        if($likecount >= 5){
+            return true;
+        }
     }
 
     /**

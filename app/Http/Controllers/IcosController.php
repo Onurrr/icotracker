@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ico;
 use Auth;
+use DB;
 
 class IcosController extends Controller
 {
@@ -79,8 +80,12 @@ class IcosController extends Controller
     }
 
 
-    public function store()
+    public function store(Ico $ico)
     {
+           $this->authorize('create', $ico);
+
+            // flash('You need to like 5 or more icos in order to create one')->error();
+
 
         $this -> validate(request(), [
             'name' => 'required|unique:icos',

@@ -4,7 +4,6 @@
 <div class="container">
 
 @include ('layouts.errors')
-
     <form method="POST" action="/coins/{{$ico->id}}/edit">
       {{ csrf_field() }}
       {{ method_field('PATCH') }}
@@ -34,8 +33,8 @@
     <textarea class="form-control" rows="5" id="body" name="body">{{$ico->body}}</textarea>
   </div>
 
-  
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
 </div>
 @endsection

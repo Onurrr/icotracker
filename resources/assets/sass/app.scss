@@ -7,3 +7,25 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+.likebutton{
+	position:absolute;
+	top:0;
+	right:15px;
+}
+.editbutton{
+	position:absolute;
+	top:0;
+	left:15px;
+}
+.deletebutton{
+	position:absolute;
+	top:0;
+	left:65px;
+}
+.disablebutton{
+	position:absolute;
+	top:36px;
+	left:15px;
+}

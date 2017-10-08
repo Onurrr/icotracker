@@ -21,28 +21,28 @@
         <form action="/coins/{{$ico->id}}" method="POST">
           {{csrf_field()}}
           {{ method_field('DELETE') }}
-          <button type="submit" class="btn btn-default">Delete</button>
+          <button type="submit" class="btn btn-default deletebutton">Delete</button>
         </form>
         @endcan
 
         @can ('update',$ico)
         <form action="/coins/{{$ico->id}}/edit">
           {{csrf_field()}}
-          <button type="submit" class="btn btn-default">Edit</button>
+          <button type="submit" class="btn btn-default editbutton">Edit</button>
         </form>
         @endcan
 
         <form method="POST" action="/coins/{{$ico->id}}/likes">
           {{csrf_field()}}
 
-          <button type="submit" class="btn btn-default" {{$ico->isLiked() ? 'disabled' : ''}}>Like</button>
+          <button type="submit" class="btn btn-default likebutton" {{$ico->isLiked() ? 'disabled' : ''}}>Like</button>
         </form>
 
         @can ('update',$ico)
         <form method="POST" action="/coins/{{$ico->id}}/disable">
           {{csrf_field()}}
 
-          <button type="submit" class="btn btn-default">Disable</button>
+          <button type="submit" class="btn btn-default disablebutton">Disable</button>
         </form>
         @endcan
 

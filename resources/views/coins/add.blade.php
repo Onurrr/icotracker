@@ -4,7 +4,12 @@
 <div class="container">
 
 @include ('layouts.errors')
-
+@cannot ('create')
+<div class="alert alert-info alert-important">
+  <strong>Info!</strong> You will need to vote <b>5</b> times in order to be able to create an Ico.
+</div>
+ @endcannot
+  @can ('create')
     <form method="POST" action="/coins">
       {{ csrf_field() }}
 
@@ -41,5 +46,6 @@
   
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+@endcan
 </div>
 @endsection
