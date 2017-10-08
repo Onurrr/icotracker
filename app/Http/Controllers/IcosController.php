@@ -53,7 +53,7 @@ class IcosController extends Controller
 
          $ico->update(request([
             'website',
-            'symbyol',
+            'symbol',
             'body',
             'start',
             'total_supply'

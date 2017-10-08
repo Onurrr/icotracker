@@ -40,4 +40,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/index', 'AdminController@index')->middleware('admin');
+Route::get('/admin/edit/{user}', 'AdminController@showedit')->middleware('admin');
+Route::patch('/admin/edit/{user}', 'AdminController@update')->middleware('admin');
 
