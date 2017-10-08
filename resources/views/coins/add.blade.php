@@ -20,7 +20,8 @@
 
   <div class="form-group">
     <label for="website">Website</label>
-    <input type="text" class="form-control" id="website" name="website" placeholder="Ex. http://www.Bitcoin.com">
+    <i>Don't add any prefixes: (www. http:// https://)</i>
+    <input type="text" class="form-control" id="website" name="website" placeholder="Ex. Bitcoin.com">
   </div>
 
   <div class="form-group">

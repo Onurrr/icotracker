@@ -13,10 +13,9 @@
         <span class="label label-primary">Coin</span>
         <span class="label label-primary">Token</span>
 
-
 <p><span class="label label-success">Likes: {{$ico->likes()->count()}}</span></p>
         <p>{{$ico->body}}</p>
-        <p><a href="//{{$ico->website}}" target="_blank" class="btn btn-primary" role="button">Website</a></p>
+        <p><a href="//{{$ico->website}}"target="_blank" class="btn btn-primary" role="button">Website</a></p>
 @can ('update',$ico)
         <form action="/coins/{{$ico->id}}" method="POST">
           {{csrf_field()}}

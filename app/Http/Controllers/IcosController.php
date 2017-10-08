@@ -45,7 +45,7 @@ class IcosController extends Controller
     {
         $this->authorize('update', $ico);
         $this -> validate(request(), [
-            'website' => 'required|active_url',
+            'website' => 'required',
             'symbol' => 'required',
             'body' => 'required',
             'start' => 'required|date',
@@ -89,7 +89,7 @@ class IcosController extends Controller
 
         $this -> validate(request(), [
             'name' => 'required|unique:icos',
-            'website' => 'required|active_url',
+            'website' => 'required',
             'symbol' => 'required',
             'body' => 'required',
             'start' => 'required|date',

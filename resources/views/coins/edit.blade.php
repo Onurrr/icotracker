@@ -10,6 +10,7 @@
 <h1>Update coin</h1>
   <div class="form-group">
     <label for="website">Website</label>
+    <i>Don't add any prefixes: (www. http:// https://)</i>
     <input type="text" class="form-control" id="website" name="website" value="{{$ico->website}}">
   </div>
 
