@@ -19,7 +19,7 @@ Route::get('/coins','IcosController@index');
 
 Route::get('/coins/add','IcosController@add');
 
-Route::get('/coins/{ico}', 'IcosController@show')->middleware('admin');
+Route::get('/coins/{ico}', 'IcosController@show');
 
 Route::get('/coins/{ico}/edit', 'IcosController@showedit');
 
@@ -38,3 +38,6 @@ Route::delete('/coins/{ico}', 'IcosController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/index', 'AdminController@index')->middleware('admin');
+
