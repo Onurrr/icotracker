@@ -20,6 +20,15 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
 
         });
+
+        Schema::create('category_ico', function (Blueprint $table) {
+            $table->integer('category_id');
+            $table->integer('ico_id');
+            $table->timestamps();
+
+            $table->primary(['category_id','ico_id']);
+
+        });
     }
 
     /**
@@ -30,5 +39,6 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
+        Schema::dropIfExists('ico_categories');
     }
 }

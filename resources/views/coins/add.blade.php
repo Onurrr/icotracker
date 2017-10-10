@@ -43,8 +43,12 @@
     <label for="summary">Summary</label>
     <textarea class="form-control" rows="5" id="body" name="body" placeholder="More information about the coin / ico."></textarea>
   </div>
+   <div class="radio">
+@foreach($categories as $category)
+  <label><input type="radio" value="{{$category->id}}" name="categoryradio">{{$category->name}}</label>
+@endforeach
+</div>
 
-  
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 @endcan

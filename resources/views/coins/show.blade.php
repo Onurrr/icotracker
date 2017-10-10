@@ -9,9 +9,10 @@
       <div class="caption">
         <h1>{{$ico->name}}</h1>
         <p>Ticker: <span class="label label-default">{{$ico->symbol}}</span></p>
-        <span class="label label-primary">Mineable</span>
-        <span class="label label-primary">Coin</span>
-        <span class="label label-primary">Token</span>
+
+@foreach ($ico->categories as $category)
+        <span class="label label-danger"><a style="color:white;" href="/coins/categories/{{$category->id}}">{{$category->name}}</a></span>
+        @endforeach
 
 <p><span class="label label-success">Likes: {{$ico->likes()->count()}}</span></p>
         <p>{{$ico->body}}</p>

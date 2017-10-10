@@ -35,6 +35,8 @@ Route::post('/coins/{ico}/disable', 'IcosController@disable');
 
 Route::delete('/coins/{ico}', 'IcosController@destroy');
 
+Route::get('/coins/categories/{category}','CategoriesController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

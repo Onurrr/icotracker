@@ -11,6 +11,11 @@
       <div class="caption">
         <h3>{{$ico->name}}</h3>
         <p>{{$ico->body}}</p>
+
+        @foreach ($ico->categories as $category)
+        <span class="label label-danger"><a style="color:white;" href="/coins/categories/{{$category->id}}">{{$category->name}}</a></span>
+        @endforeach
+
         <p><a href="/coins/{{$ico->id}}" class="btn btn-primary" role="button">View</a>
       </div>
     </div>

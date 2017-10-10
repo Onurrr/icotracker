@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+use App\Category;
 
 class Ico extends Model
 {
@@ -42,6 +43,10 @@ class Ico extends Model
     public function isliked()
     {
         return $this->likes()->where('user_id', auth()->id())->exists();
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 
     //To counter MassAssignmentException

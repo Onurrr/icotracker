@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ico;
 use Auth;
+use App\Category;
 use DB;
 
 class IcosController extends Controller
@@ -20,7 +21,7 @@ class IcosController extends Controller
 
     public function index()
     {
-        $icos = Ico::withCount('likes')->orderBy('likes_count','desc')->where('active', 1)->get();
+        $icos = Ico::with('categories')->withCount('likes')->orderBy('likes_count','desc')->where('active', 1)->get();
 
     	return view('coins.index', compact('icos'));
     }
@@ -64,10 +65,11 @@ class IcosController extends Controller
         return redirect('/coins/');
     }
 
-    public function add()
+    public function add(Category $category)
     {
- 
-        return view('coins.add');
+        $categories = Category::all();
+
+        return view('coins.add', compact('categories'));
     }
 
     public function disable(Ico $ico)
@@ -96,7 +98,7 @@ class IcosController extends Controller
             'total_supply'=> 'required|numeric'
         ]);
 
-        Ico::create([
+        $createico = Ico::create([
             'active' => '1',
             'user_id' => Auth::user()->id,
             'name' => request('name'),
@@ -105,8 +107,11 @@ class IcosController extends Controller
             'body' => request('body'),
             'start' => request('start'),
             'total_supply' => request('total_supply')
-
         ]);
+
+   DB::table('category_ico')->insert([
+    ['category_id' => request('categoryradio'),'ico_id' => $createico->id]
+]);
 flash('The Ico has been created')->success();
         return redirect('/coins');
     }
