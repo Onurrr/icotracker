@@ -33,6 +33,8 @@ Route::post('/coins/{ico}/likes', 'LikesController@store');
 
 Route::post('/coins/{ico}/disable', 'IcosController@disable');
 
+Route::post('/coins/{ico}/enable', 'IcosController@enable');
+
 Route::delete('/coins/{ico}', 'IcosController@destroy');
 
 Route::get('/coins/categories/{category}','CategoriesController@index');
@@ -44,4 +46,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/index', 'AdminController@index')->middleware('admin');
 Route::get('/admin/edit/{user}', 'AdminController@showedit')->middleware('admin');
 Route::patch('/admin/edit/{user}', 'AdminController@update')->middleware('admin');
+
+Route::get('/profile/{user}', 'ProfilesController@show');
 

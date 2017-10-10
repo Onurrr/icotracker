@@ -35,4 +35,8 @@ class User extends Authenticatable
         }
 
 }
+    public function icos()
+    {
+        return $this->hasMany(Ico::class);
+    }
 }

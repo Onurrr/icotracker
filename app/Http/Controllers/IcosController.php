@@ -77,8 +77,17 @@ class IcosController extends Controller
         
    $this->authorize('update', $ico);
    $ico->update(['active' => 0]);
+flash('The Ico has been disabled.')->success();
+        return back();
+    }
 
-        return redirect('/coins/');
+    public function enable(Ico $ico)
+    {
+        
+   $this->authorize('update', $ico);
+   $ico->update(['active' => 1]);
+flash('The Ico has been enabled.')->success();
+        return back();
     }
 
 
@@ -86,16 +95,14 @@ class IcosController extends Controller
     {
            $this->authorize('create', $ico);
 
-            // flash('You need to like 5 or more icos in order to create one')->error();
-
-
         $this -> validate(request(), [
             'name' => 'required|unique:icos',
             'website' => 'required',
             'symbol' => 'required',
             'body' => 'required',
             'start' => 'required|date',
-            'total_supply'=> 'required|numeric'
+            'total_supply'=> 'required|numeric',
+            'categoryradio' => 'required'
         ]);
 
         $createico = Ico::create([
