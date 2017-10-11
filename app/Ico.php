@@ -49,11 +49,6 @@ class Ico extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function isdisabled()
-    {
-        return $this->where('active', 0);
-    }
-
     //To counter MassAssignmentException
     protected $guarded = [];
     

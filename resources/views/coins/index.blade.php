@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+  <ol class="breadcrumb">
+    @foreach ($categories as $category)
+  <li><a href="/coins/categories/{{$category->id}}">{{$category->name}}</a></li>
+    @endforeach
+</ol>
     <div class="row">
         @foreach ($icos as $ico)
           <div class="col-6 col-md-4">

@@ -10,8 +10,8 @@ class CategoriesController extends Controller
     public function index(Category $category)
     {
     	$icos = $category->icos;
-
-    	return view('coins.index', compact('icos'));
+		$categories = Category::all();
+    	return view('coins.index', compact('icos','categories'));
 
     }
 }
