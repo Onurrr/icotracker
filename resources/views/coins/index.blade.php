@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
   <ol class="breadcrumb">
+    Categories:
     @foreach ($categories as $category)
   <li><a href="/coins/categories/{{$category->id}}">{{$category->name}}</a></li>
     @endforeach
