@@ -5,9 +5,8 @@
     <div class="row">
           <div class="col-12 col-md-12">
             <div class="thumbnail">
-      <img src="http://www.canbike.org/public/images/030114/Bitcoin_Logo_Vertical.png" style="max-height:120px;">
       <div class="caption">
-        <h1>{{$ico->name}}</h1>
+        <h1 class="text-center">{{$ico->name}}</h1>
         <p>Ticker: <span class="label label-default">{{$ico->symbol}}</span></p>
 
 @foreach ($ico->categories as $category)
@@ -52,7 +51,7 @@
 @foreach ($ico->comments as $comment)
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">By: <b>{{ $comment->user->name }}</b> - {{$comment->created_at->diffForHumans()}}</h3>
+    <h3 class="panel-title">By: <a href="/profile/{{$comment->user->id}}"><b>{{ $comment->user->name }}</b></a> - {{$comment->created_at->diffForHumans()}}</h3>
   </div>
   <div class="panel-body">
     {{ $comment -> body }}
