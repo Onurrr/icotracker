@@ -39,13 +39,19 @@ Route::delete('/coins/{ico}', 'IcosController@destroy');
 
 Route::get('/coins/categories/{category}','CategoriesController@index');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/index', 'AdminController@index')->middleware('admin');
+
 Route::get('/admin/edit/{user}', 'AdminController@showedit')->middleware('admin');
+
 Route::patch('/admin/edit/{user}', 'AdminController@update')->middleware('admin');
 
 Route::get('/profile/{user}', 'ProfilesController@show');
+
+Route::get('/profile/edit/{user}', 'ProfilesController@showedit');
+
+Route::patch('/profile/edit/{user}', 'ProfilesController@update');
+
+Auth::routes();
 

@@ -6,6 +6,7 @@ use App\Ico;
 use Auth;
 use DB;
 use App\Category;
+use Request;
 
 class IcosController extends Controller
 {
@@ -21,7 +22,13 @@ class IcosController extends Controller
 
     public function index()
     {
-        $icos = Ico::with('categories')->withCount('likes')->orderBy('likes_count','desc')->where('active', 1)->get();
+
+        $sq = Request::get('search');
+
+ 
+        $icos = Ico::where('name','like','%'.$sq.'%')->orWhere('body','like','%'.$sq.'%')->withCount('likes')->orderBy('likes_count','desc')->where('active', 1)->get();
+
+        
         $categories = Category::all();
 
     	return view('coins.index', compact('icos','categories'));

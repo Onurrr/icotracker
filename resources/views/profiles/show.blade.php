@@ -6,7 +6,7 @@
     <div class="row">
 
                   @can ('update',$user)
-        <form method="POST" action="">
+        <form action="/profile/edit/{{$user->id}}">
           {{csrf_field()}}
 
           <button type="submit" class="btn btn-default center-block">Edit my profile</button>

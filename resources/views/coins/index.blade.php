@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<form method="GET" action="/coins" role="search">
+            {{ csrf_field() }}
+            <div class="form-group col-md-10 col-md-offset-1 input-group">
+                <input type="text" name="search" placeholder="Search Ico" class="form-control"></input>
+                <span class="input-group-btn search_btn">
+                    <button class="btn btn-primary" type="submit">
+                      Search
+                    </button>
+                </span>
+            </div>
+        </form>
+
 <div class="container">
   <ol class="breadcrumb">
     Categories:
@@ -22,7 +35,7 @@
         <span class="label label-danger"><a style="color:white;" href="/coins/categories/{{$category->id}}">{{$category->name}}</a></span>
         @endforeach
 
-        <p><a href="/coins/{{$ico->id}}" class="btn btn-primary" role="button">View</a>
+        <p><a href="/coins/{{$ico->id}}" class="btn btn-primary" role="button">View</a></p>
       </div>
     </div>
           </div>
