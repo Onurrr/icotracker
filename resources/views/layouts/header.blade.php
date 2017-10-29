@@ -49,13 +49,13 @@
                                             Admin
                                         </a>
                                     </li>
-
+                                    @endif
                                     <li>
                                         <a href="/profile/{{Auth::user()->id}}">
                                             My Profile
                                         </a>
                                     </li>
-                                    @endif
+                                    
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

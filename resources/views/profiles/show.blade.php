@@ -5,13 +5,14 @@
   <h1 class="text-center">{{$user->name}}'s Profile</h1>
     <div class="row">
 
-                  @can ('update',$user)
+                 @if ($user->id == $authuser->id)
         <form action="/profile/edit/{{$user->id}}">
           {{csrf_field()}}
 
           <button type="submit" class="btn btn-default center-block">Edit my profile</button>
         </form>
-        @endcan
+        @endif
+
         <h1 class="text-center">{{$user->name}}'s Ico's</h1>
         @foreach ($user->icos as $ico)
           <div class="col-8 col-md-8 col-md-offset-2">
